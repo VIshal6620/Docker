@@ -1,0 +1,75 @@
+
+    <body style="background-color: whitesmoke;background-image:url(https://images.pexels.com/photos/305821/pexels-photo-305821.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-repeat:no-repeat;width: 100%; background-size: cover"></body>
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- <body style="background-color: whitesmoke;background-image:url(https://images.pexels.com/photos/965119/pexels-photo-965119.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-repeat:no-repeat;width: 100%; background-size: cover ">	 -->
+
+    {% include  "./Header.html"%}
+    <div class="modal-dialog">
+    <br>
+   
+    
+        <div class="modal-content" style="background-color:rgba(255, 255, 255, 0.212);">
+            <div class="modal-header text-center ">
+                <h3  class="modal-title " style="font-family: bold; font-size: xx-large;margin-left: 112px;">Subject Information</h3>
+            </div>
+    
+            <form method="POST">
+                    {% if form.error  %}
+                    <p style="color:red; text-align: center;"> {{form.messege}}</p>
+                    {% else %}
+                    <p style="color:green ; text-align: center;"> {{form.messege}}</p>
+                    {% endif %}
+                <input type="hidden" name="id" value="{{form.id}}">
+                <div class="modal-body">
+                    
+                <div class="col-lg-4"></div>
+                    <div class="form-group row">
+                            <div class="col-lg-1"></div>
+                        <label class="col-lg-3 form-control-label">Subject<span style="color: red;">*</span> </label>
+                        <div class="col-lg-8">
+                            <input class="form-control" type="text" name="subjectName" value="{{form.subjectName}}" placeholder="Enter Subject Name">
+                            <span style="color: red;"> {{form.inputError.subjectName}} </span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                            <div class="col-lg-1"></div>
+                        <label class="col-lg-3 form-control-label">Description<span style="color: red;">*</span> </label>
+                        <div class="col-lg-8">
+                            <input class="form-control" name="subjectDescription" value="{{form.subjectDescription}}" placeholder="Enter Description">
+                            <span style="color: red;"> {{form.inputError.subjectDescription}} </span>
+    
+                        </div>
+                    </div>
+    
+                    <div class="form-group row">
+                            <div class="col-lg-1"></div>
+                        <label class="col-lg-3 form-control-label">Course Name<span style="color: red;"> * </span></label>
+                        <div class="col-lg-8">
+                           {{ form.preload.course|safe }}
+                            <span style="color:red">{{ form.inputError.course_ID }}</span>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-success">Save
+                                   
+                                </button>
+                            </div>
+                            <div class="col-md-2">
+                                <a href="" class="btn btn-primary">Reset
+                                   
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    
+    </div>
+    
+    </body>
+    {% include  "./Footer.html"%}

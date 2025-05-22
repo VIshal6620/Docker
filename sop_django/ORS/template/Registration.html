@@ -1,0 +1,115 @@
+<body style="background-color: whitesmoke;background-image: url(https://images.pexels.com/photos/305821/pexels-photo-305821.jpeg?auto=compress&cs=tinysrgb&d);background-repeat: no-repeat;background-size: cover;width: 100%;"></body>
+
+{% include './Header.html' %}
+
+<div class="modal-dialog">
+    <div class="modal-content" style="width: 900px;margin-left:-200px;background-color:rgba(255, 255,255, 0.212);">
+        <div class="modal-header text-center">
+            <h4 class="modal-title" style="padding-left:295px;font-family: bold;font-size: xx-large;">
+                USER REGISTRATION</h4>
+        </div>
+        <form method="POST">
+            {% if form.error %}
+                <p style="color:red;text-align:center;font-size:x-large;"> {{ form.messege }} </p>
+            {% else %}
+                <p style="color:green;text-align: center;"> {{ form.messege }} </p>
+            {% endif %}
+            <input type="hidden" name="id" value="{{ form.id }}">
+            <div class="modal-body">
+                <div class="form-group row col-lg-12">
+                    <label class="col-lg-2 form-control-label" for="firstName">First Name
+                        <span style="color:red;">*</span></label>
+                    <div class="col-lg-4">
+                        <input name="firstName" id="firstName" type="text"
+                                value="{{form.firstName }}" class="form-control"
+                                placeholder="Enter First Name">
+                        <span style="color: red;"> {{ form.inputError.firstName }} </span>
+                    </div>
+
+                    <label class="col-lg-2 form-control-label" for="lastName">Last name
+                            <span style="color:red;">*</span></label>
+                    <div class="col-lg-4">
+                        <input name="lastName" id="lastName" type="text"
+                                value="{{ form.lastName }}" class="form-control"
+                                placeholder="Enter Last Name">
+                        <span style="color:red;"> {{ form.inputError.lastName }} </span>
+                    </div>
+                </div>
+
+                <div class="form-group row col-lg-12">
+                    <label class="col-lg-2 form-control-label">Login<span style="color:red;">*</span></label>
+                    <div class="col-lg-4">
+                        <input name="login_id" value="{{ form.login_id}}" class="form-control"
+                                placeholder="Enter Your login_id">
+                        <span style="color: red;"> {{ form.inputError.login_id }} </span>
+                    </div>
+
+                    <label class="col-lg-2 form-control-label">Password<span style="color:red;">*</span></label>
+                    <div class="col-lg-4">
+                        <input name="password" type="password"
+                                value="{{ form.password}}" class="form-control"
+                                placeholder="Enter Your password">
+                        <span style="color:red;"> {{ form.inputError.password }} </span>
+                    </div>
+                </div>
+
+                <div class="form-group row col-lg-12">
+                    <label class="col-lg-2 form-control-label">Confirm Password<span style="color:red;">*</span></label>
+                    <div class="col-lg-4">
+                        <input name="confirmpassword" type="password"
+                                value="{{form.confirmpassword }}" class="form-control"
+                                placeholder="Enter Your Password">
+                        <span style="color: red;"> {{ form.inputError.confirmpassword }} </span>
+                    </div>
+
+                    <label class="col-lg-2 form-control-label">DOB<span style="color:red;">*</span></label>
+                    <div class="col-lg-4">
+                        <input style="cursor:pointer" type="date" id="start" name="dob" value="{{ form.dob}}" class="form-control"
+                                placeholder="YYYY-MM-DD">
+                        <span style="color:red;"> {{ form.inputError.dob }} </span>
+                    </div>
+                </div>
+
+                <div class="form-group row col-lg-12">
+                    <label class="col-lg-2 form-control-label">Address<span style="color:red;">*</span></label>
+                    <div class="col-lg-4">
+                        <input name="address" value="{{form.address }}" class="form-control"
+                                placeholder="Enter your address">
+                        <span style="color: red;"> {{ form.inputError.address }} </span>
+                    </div>
+
+                    <label class="col-lg-2 form-control-label">Gender<span style="color:red;">*</span></label>
+                    <div class="col-lg-4">
+                        {{ form.preload.gender|safe }}
+
+                        <span style="color:red;"> {{ form.inputError.gender }} </span>
+                    </div>
+                </div>
+
+                <div class="form-group row col-lg-12">
+                    <label class="col-lg-2 form-control-label">Mobile No.<span style="color:red;">*</span></label>
+                    <div class="col-lg-4">
+                        <input name="mobilenumber" value="{{ form.mobilenumber}}" class="form-control"
+                                placeholder="Enter Your Mobile Number">
+                        <span style="color: red;"> {{ form.inputError.mobilenumber }} </span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-success form-control">Save</button>
+                    </div>
+                    <div class="col-md-2">
+                        <a href="" class="btn btn-primary form-control">Reset</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+    </div>
+
+</div>
+{% include './Footer.html' %}
+

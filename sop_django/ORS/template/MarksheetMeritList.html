@@ -1,0 +1,54 @@
+
+
+{% include  "./Header.html"%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        td,th {
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="background-color: whitesmoke;background-image:url('../../static/images/list_background.png');background-repeat: no-repeat;width: 100%;background-size: cover ;">
+    <div class="container-fluid">
+        <div>
+            <br>
+            <H2 align="center">MarksheetMeritList</H2><br>
+        </div>
+        <form method="POST">
+            <div class="row">
+            <div class="col-md-12">
+                <table class="table table-sm table-bordered table-hover table-responsive-sm">
+                    <thead class="thead-dark">
+                        <th scope="row">Rank</th>
+                        <th scope="row">Roll No </th>
+                        <th scope="row">Name</th>
+                        <th scope="row">Physics </th>
+                        <th scope="row">Chemistry </th>
+                        <th scope="row">Maths </th>
+                        <th scope="row">Total</th>
+                        <th scope="row">Percentage</th>
+                    </thead>
+                    <tbody>
+                        {% for e in pageList %}
+                        <tr>
+                            <td>{{ form.index|add:forloop.counter0 }}</td>
+                            <td>{{e.rollNumber}}</td>
+                            <td>{{e.name}}</td>
+                            <td>{{e.physics}}</td>
+                            <td>{{e.chemistry}}</td>
+                            <td>{{e.maths}}</td>
+                            <td>{{e.total}}</td>
+                            <td>{{e.percentage|floatformat:2}} %</td>
+                        {% endfor %}
+                        </tr>                        
+                    </tbody>
+                </table>
+                <a class="btn btn-primary" style="margin-left:620px;" href="/ORS/Welcome/">Back</a>
+            </div>
+</body>
+
+</html>
+{% include  "./Footer.html"%}

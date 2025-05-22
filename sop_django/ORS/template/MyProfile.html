@@ -1,0 +1,84 @@
+
+<body style="background-color: whitesmoke;background-image:url(https://images.pexels.com/photos/305821/pexels-photo-305821.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-repeat:no-repeat;width: 100%; background-size: cover ">	
+ 
+    <!-- <body style="background-color: whitesmoke;background-image:url(https://images.pexels.com/photos/965119/pexels-photo-965119.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); background-repeat:no-repeat;width: 100%; background-size: cover ">	 -->
+
+
+{% include  "./Header.html"%}
+
+<div class="modal-dialog">
+    {% if form.error  %}
+    <p style="color: red;"> {{form.messege}}</p>
+    {% else %}
+    <p style="color: green;"> {{form.messege}}</p>
+    {% endif %}
+
+    <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.212)
+    ;">
+        <div class="modal-header">
+            <h4 class="modal-title" style="padding-left: 125px;">My Profile Information</h4>
+            
+        </div>
+        <form method="POST">
+            <input type="hidden" name="id" value="{{form.id}}">
+            <div class="modal-body">
+                <div class="form-group row">
+                    <label class="col-lg-3 form-control-label">First Name  </label>
+                    <div class="col-lg-9">
+                        <p name="firstName" value="{{form.firstName}}" class="form-control">{{form.firstName}}</p>
+                        <span style="color: red;"> {{form.inputError.firstName}} </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 form-control-label">Last Name </label>
+                    <div class="col-lg-9">
+                        <p class="form-control" name="lastName" value="{{form.lastName}}">{{form.lastName}}</p>
+                        <span style="color: red;"> {{form.inputError.lastName}} </span> </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 form-control-label">Login </label>
+                    <div class="col-lg-9">
+                        <p class="form-control" name="login" value="{{form.login}}">{{form.login_id}}</p>
+                        <span style="color: red;"> {{form.inputError.login_id}} </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 form-control-label">Password  </label>
+                    <div class="col-lg-9">
+                        <p class="form-control" name="password" value="{{form.password}}">{{form.password}}</p>
+                        <span style="color: red;"> {{form.inputError.password}} </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 form-control-label">Date Of Birth </label>
+                    <div class="col-lg-9">
+                        <p style="cursor: pointer" name="dob" value="{{form.dob}}" class="form-control"
+                            placeholder="DD-MM-YYYY">{{form.dob}}</p>
+                        <span style="color: red;"> {{form.inputError.dob}} </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 form-control-label">Mobile</label>
+                    <div class="col-lg-9">
+                        <p class="form-control" name="mobileNumber" value="{{form.mobilenumber}}">{{form.mobilenumber}}</p>
+                        <span style="color: red;"> {{form.inputError.mobilenumber}} </span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-lg-3 form-control-label">Gender </label>
+                    <div class="col-lg-9">
+                        <p class="form-control" name="gender" value="{{form.gender}}">{{form.gender}}</p>
+
+                    </div>
+                </div>
+
+           
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+
+</body>
+{% include  "./Footer.html"%}
